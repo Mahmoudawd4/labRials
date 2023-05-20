@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_20_112801) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_20_115334) do
   create_table "students", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.integer "age"
     t.string "IDno"
+    t.bigint "track_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "track_id", null: false
-    t.index ["IDno"], name: "index_students_on_IDno", unique: true
     t.index ["track_id"], name: "index_students_on_track_id"
   end
 
@@ -27,7 +26,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_112801) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_tracks_on_name", unique: true
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
